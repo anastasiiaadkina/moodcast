@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Mood</title>
+    <link rel="stylesheet" href="/public/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Мягкий шрифт -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Верхняя панель: логотип + авторизация + язык -->
+    <header class="top-bar">
+        <div class="logo-block">
+            <div class="logo-circle">🌷</div>
+            <div class="logo-text">
+                <span class="logo-title">Your Mood</span>
+                <span class="logo-subtitle" data-i18n="logoSubtitle">
+                    Track your mood & weather
+                </span>
+            </div>
+        </div>
+
+        <!-- Кнопки авторизации -->
+        <div class="auth-lang-wrapper">
+
+            <div class="auth-buttons" id="authButtons">
+                <a href="signup.html" class="auth-btn signup-btn" data-i18n="signupBtn">Sign Up</a>
+                <a href="login.html" class="auth-btn login-btn" data-i18n="loginBtn">Login</a>
+            </div>
+
+            <!-- Блок только для авторизованных -->
+            <div class="user-panel" id="userPanel">
+                <span id="userEmailDisplay"></span>
+                <button id="logoutBtn" class="auth-btn small-btn" data-i18n="logoutBtn">
+                    Logout
+                </button>
+            </div>
+
+            <!-- Переключатель языка -->
+            <div class="lang-switcher">
+                <select id="languageSelect">
+                    <option value="en">EN</option>
+                    <option value="ru">RU</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero-секция с иллюстрациями -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1 data-i18n="headingMain">Your Mood</h1>
+            <p data-i18n="heroText">
+                See how the weather affects the way you feel and keep a soft pastel diary of your moods.
+            </p>
+        </div>
+        <div class="hero-images">
+            <div class="hero-img-card">
+                <!-- 1: девочка с планшетом -->
+                <img src="/public/222.jpg" alt="Girl using a tablet">
+            </div>
+            <div class="hero-img-card">
+                <!-- 2: девочка с телефоном -->
+                <img src="/public/787.jpg" alt="Girl using a phone">
+            </div>
+        </div>
+    </section>
+
+    <!-- Основной контейнер -->
+    <main class="main-container">
+
+        <!-- Блок: погода + выбор настроения -->
+        <section class="pum">
+            <div class="pum-header">
+                <h2 data-i18n="weatherMoodTitle">Weather & today’s mood</h2>
+            </div>
+
+            <!-- Фоновая картинка окна -->
+            <div class="window-wrap">
+                <!-- 3: окно с подушками -->
+                <img src="/public/дфтвысфзу.jpg" class="window-bg" alt="Cozy window view">
+            </div>
+
+            <div class="content-block">
+                <div class="input-container">
+                    <input 
+                        type="text" 
+                        name="text" 
+                        class="input" 
+                        placeholder="Enter city (e.g. Moscow)" 
+                        id="moodCityInput"
+                        data-i18n-placeholder="inputPlaceholder"
+                    >
+                    <span class="icon">
+                        <svg width="19px" height="19px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path opacity="1" d="M14 5H20" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path opacity="1" d="M14 8H17" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M21 11.5C21 16.75 16.75 21 11.5 21C6.25 21 2 16.75 2 11.5C2 6.25 6.25 2 11.5 2" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path opacity="1" d="M22 22L20 20" stroke="#000" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </span>
+                </div>
+
+                <button data-i18n="getMoodWeatherBtn" class="button2" id="getMoodWeatherBtn">
+                    Get weather & set mood
+                </button>
+
+                <div id="moodWeatherInfo" class="card soft-card"></div>
+
+                <div id="moodSelector" class="mood-selector">
+                    <h3 data-i18n="howDoYouFeel">How do you feel today?</h3>
+                    <div class="mood-buttons">
+                        <button class="mood-btn" data-mood="sad">😢</button>
+                        <button class="mood-btn" data-mood="neutral">😐</button>
+                        <button class="mood-btn" data-mood="happy">😊</button>
+                    </div>
+                    <p id="moodSavedMessage" class="mood-saved"></p>
+
+                    <div class="mood-hints">
+                        <!-- 5: грустный у окна -->
+                        <div class="mood-hint-card">
+                            <img src="/public/ыфв.jpg" alt="Sad by the window">
+                            <span data-i18n="sadHint">It’s okay to feel low — the app will keep it for you.</span>
+                        </div>
+                        <!-- 6: парень под деревом -->
+                        <div class="mood-hint-card">
+                            <img src="/public/екуу.jpg" alt="Happy under the tree">
+                            <span data-i18n="happyHint">Capture the light moments and come back to them.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- История настроения -->
+        <section class="pum">
+            <div class="pum-header">
+                <h2 data-i18n="moodHistoryTitle">Your mood history</h2>
+            </div>
+
+            <button id="clearMoodHistoryBtn" class="button2 small"
+                data-i18n="clearHistoryBtn">
+                Clear history
+            </button>
+
+            <div id="moodHistory" class="history-grid"></div>
+        </section>
+
+        <!-- Аналитика настроения vs погода -->
+        <section class="pum">
+            <div class="pum-header">
+                <h2 data-i18n="moodAnalyticsTitle">Your mood analytics</h2>
+            </div>
+            <div id="moodAnalytics" class="card soft-card"></div>
+
+            <!-- 4: второе окно -->
+            <div class="analytics-window">
+                <img src="/public/дфтвысфзу.jpg" alt="Street view from window">
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Милый футер с животными -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <!-- 7: животные на поляне -->
+            <img src="/public/GigaChat3.jpg" alt="Animals in a field" class="footer-img">
+            <p data-i18n="footerText">
+                Your feelings matter. This is your soft corner of the internet. 🌸
+            </p>
+        </div>
+    </footer>
+
+    <script src="/public/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,607 @@
+:root {
+    --bg-main: #faf6fb;
+    --bg-card: #ffffff;
+    --bg-soft: #f7edf7;
+    --accent: #f2a6c8;
+    --accent-soft: #ffd6e9;
+    --accent-strong: #ff74a6;
+    --text-main: #413a4f;
+    --text-soft: #8d849c;
+    --border-soft: #eadff3;
+    --radius-lg: 24px;
+    --radius-md: 18px;
+    --shadow-soft: 0 16px 40px rgba(183, 141, 201, 0.18);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Nunito", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: radial-gradient(circle at top left, #fff0ff 0, #faf6fb 40%, #fdfbff 100%);
+    color: var(--text-main);
+}
+
+/* Верхняя панель */
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px;
+    max-width: 1120px;
+    margin: 14px auto 0;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 999px;
+    box-shadow: 0 10px 35px rgba(183, 141, 201, 0.15);
+    backdrop-filter: blur(20px);
+}
+
+.logo-block {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-circle {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ffd6e9, #b9dfff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-title {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.logo-subtitle {
+    font-size: 12px;
+    color: var(--text-soft);
+}
+
+.auth-lang-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.auth-btn {
+    border-radius: 999px;
+    padding: 7px 16px;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    font-weight: 600;
+}
+
+.signup-btn {
+    background: var(--accent-soft);
+    color: var(--text-main);
+}
+
+.signup-btn:hover {
+    background: #ffe6f1;
+}
+
+.login-btn {
+    background: var(--accent-strong);
+    color: white;
+}
+
+.login-btn:hover {
+    background: #ff5c96;
+}
+
+.small-btn {
+    background: #f0e5ff;
+    color: var(--text-main);
+    padding: 6px 12px;
+    font-size: 12px;
+}
+
+.user-panel {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--text-soft);
+}
+
+#userEmailDisplay {
+    max-width: 160px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Переключатель языка */
+
+.lang-switcher select {
+    border-radius: 999px;
+    padding: 6px 10px;
+    border: 1px solid var(--border-soft);
+    background: #fff;
+    font-size: 12px;
+    outline: none;
+}
+
+/* Hero */
+
+.hero {
+    max-width: 1120px;
+    margin: 26px auto 10px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.4fr);
+    gap: 26px;
+    align-items: center;
+}
+
+.hero-text h1 {
+    font-size: 32px;
+    margin: 0 0 8px;
+}
+
+.hero-text p {
+    margin: 0;
+    color: var(--text-soft);
+    font-size: 15px;
+    max-width: 360px;
+}
+
+.hero-images {
+    display: flex;
+    gap: 16px;
+    justify-content: flex-end;
+}
+
+.hero-img-card {
+    flex: 1;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    background: #fdfcff;
+    max-height: 260px;
+}
+
+.hero-img-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Основной контейнер */
+
+.main-container {
+    max-width: 1120px;
+    margin: 0 auto 40px;
+    padding: 0 12px;
+}
+
+/* PUM – общий блок */
+
+.pum {
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 34px;
+    padding: 22px 20px 24px;
+    margin-bottom: 22px;
+    box-shadow: 0 18px 40px rgba(183, 141, 201, 0.16);
+    position: relative;
+    overflow: hidden;
+}
+
+.pum-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 16px;
+}
+
+.pum-header h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+/* Фоновое окно в первом блоке */
+
+.window-wrap {
+    position: absolute;
+    right: -10px;
+    top: -4px;
+    width: 260px;
+    opacity: 0.22;
+    pointer-events: none;
+}
+
+.window-bg {
+    width: 100%;
+    border-radius: 26px;
+    filter: blur(0.4px);
+}
+
+/* Контент внутри PUM */
+
+.content-block {
+    position: relative;
+    z-index: 1;
+}
+
+/* Инпут города */
+
+.input-container {
+    position: relative;
+    width: 100%;
+    max-width: 360px;
+    margin-bottom: 10px;
+}
+
+.input {
+    width: 100%;
+    padding: 12px 40px 12px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--border-soft);
+    outline: none;
+    background: #fdfbff;
+    font-size: 14px;
+    color: var(--text-main);
+    box-shadow: 0 8px 24px rgba(199, 170, 214, 0.12);
+}
+
+.input::placeholder {
+    color: #c0b4cf;
+}
+
+.icon {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.5;
+}
+
+/* Кнопки */
+
+.button2 {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 6px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+    color: #fff;
+    box-shadow: 0 10px 28px rgba(240, 135, 183, 0.5);
+    transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+}
+
+.button2.small {
+    padding: 8px 14px;
+    font-size: 13px;
+}
+
+.button2:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.04);
+    box-shadow: 0 14px 34px rgba(240, 135, 183, 0.6);
+}
+
+/* Карточки */
+
+.card {
+    margin-top: 14px;
+    padding: 12px 14px;
+    border-radius: var(--radius-md);
+    border: 1px dashed var(--border-soft);
+    font-size: 14px;
+}
+
+.soft-card {
+    background: linear-gradient(135deg, #fdf7ff, #f6faff);
+}
+
+/* Блок выбора настроения */
+
+.mood-selector {
+    margin-top: 18px;
+}
+
+.mood-selector h3 {
+    margin: 0 0 8px;
+    font-size: 16px;
+}
+
+.mood-buttons {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.mood-btn {
+    width: 52px;
+    height: 52px;
+    border-radius: 26px;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    background: #fff;
+    box-shadow: 0 10px 26px rgba(179, 146, 203, 0.18);
+    transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+}
+
+.mood-btn:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(179, 146, 203, 0.25);
+}
+
+.mood-btn.active {
+    background: var(--accent-soft);
+    box-shadow: 0 12px 32px rgba(240, 135, 183, 0.36);
+}
+
+.mood-saved {
+    font-size: 13px;
+    color: var(--text-soft);
+}
+
+/* Подсказки с картинками настроения */
+
+.mood-hints {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.mood-hint-card {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 8px 10px;
+    box-shadow: 0 8px 26px rgba(183, 141, 201, 0.14);
+}
+
+.mood-hint-card img {
+    width: 54px;
+    height: 54px;
+    border-radius: 18px;
+    object-fit: cover;
+}
+
+.mood-hint-card span {
+    font-size: 12px;
+    color: var(--text-soft);
+}
+
+/* История */
+
+.history-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.history-item {
+    border-radius: 20px;
+    padding: 10px 12px;
+    background: #fdf8ff;
+    border: 1px solid var(--border-soft);
+    font-size: 13px;
+    box-shadow: 0 8px 24px rgba(182, 145, 203, 0.14);
+}
+
+.history-item-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.history-city {
+    font-weight: 600;
+}
+
+.history-date {
+    font-size: 11px;
+    color: var(--text-soft);
+}
+
+.history-meta {
+    font-size: 12px;
+    color: var(--text-soft);
+}
+
+/* Аналитика */
+
+.analytics-window {
+    margin-top: 14px;
+    border-radius: 22px;
+    overflow: hidden;
+    max-height: 220px;
+}
+
+.analytics-window img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Футер */
+
+.footer {
+    padding: 18px 0 26px;
+}
+
+.footer-inner {
+    max-width: 920px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #ffe6f0, #e2f3ff);
+    border-radius: 30px;
+    padding: 12px 16px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    box-shadow: 0 16px 40px rgba(195, 151, 205, 0.26);
+}
+
+.footer-img {
+    width: 90px;
+    height: 90px;
+    border-radius: 24px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 13px;
+    color: #5b4d6b;
+}
+
+/* Формы логина/регистрации */
+
+.auth-page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at top, #ffe3f1, #f8f3ff, #f5fbff);
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 380px;
+    background: #ffffff;
+    border-radius: 32px;
+    padding: 24px 20px 26px;
+    box-shadow: 0 24px 60px rgba(182, 145, 203, 0.32);
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-card::before {
+    content: "";
+    position: absolute;
+    inset: -80px;
+    background: radial-gradient(circle at top left, rgba(255, 200, 230, 0.35), transparent 55%),
+                radial-gradient(circle at bottom right, rgba(180, 210, 255, 0.4), transparent 55%);
+    opacity: 0.9;
+    z-index: -1;
+}
+
+.auth-title {
+    margin: 0 0 4px;
+    font-size: 22px;
+    text-align: center;
+}
+
+.auth-subtitle {
+    margin: 0 0 16px;
+    font-size: 13px;
+    text-align: center;
+    color: var(--text-soft);
+}
+
+.auth-form-group {
+    margin-bottom: 12px;
+}
+
+.auth-form-group label {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+
+.auth-input {
+    width: 100%;
+    padding: 10px 13px;
+    border-radius: 16px;
+    border: 1px solid var(--border-soft);
+    background: #fdfbff;
+    outline: none;
+    font-size: 14px;
+}
+
+.auth-submit {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.auth-link {
+    margin-top: 10px;
+    font-size: 12px;
+    text-align: center;
+    color: var(--text-soft);
+}
+
+.auth-link a {
+    color: var(--accent-strong);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Адаптив */
+
+@media (max-width: 860px) {
+    .top-bar {
+        border-radius: 24px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .hero-images {
+        justify-content: flex-start;
+    }
+
+    .window-wrap {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .pum {
+        padding: 18px 14px 20px;
+        border-radius: 26px;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .auth-buttons {
+        display: none;
+    }
+}
